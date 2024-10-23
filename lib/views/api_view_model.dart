@@ -14,4 +14,13 @@ class ApiViewModel extends ChangeNotifier {
     _groupsModel = await _apiService.getAllGroups(); // API-dən qrupları alır
     notifyListeners(); // UI-nı yeniləmək üçün bildiriş göndərir
   }
+
+  Future<bool> checkGroupPassword(int id, String password) async {
+    for (GroupsModel group in _groupsModel!) {
+      if (group.id == id && group.groupPass == password) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -1,6 +1,8 @@
 import 'package:chatapp_project/models/groups_model.dart';
 import 'package:chatapp_project/views/api_view_model.dart';
 import 'package:chatapp_project/views/floating/floatingAction_view.dart';
+import 'package:chatapp_project/views/screens/chat_screen.dart';
+import 'package:chatapp_project/widgets/password_modal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +22,6 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    // API-dən bütün qrupları yükləyir
     print("Fetching groups...");
     context.read<ApiViewModel>().fetchAllGroups();
   }
@@ -87,20 +88,32 @@ class _AppViewState extends State<AppView> {
     return ListView.builder(
       itemCount: groupsToShow.length, // Kartların sayı
       itemBuilder: (context, index) {
-        return Card(
-          margin: const EdgeInsets.all(8.0),
-          elevation: 4,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: Colors.purple.shade300, width: 1),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: ListTile(
-            title: Text(
-              groupsToShow[index].groupName, // Qrup adları
-              style: const TextStyle(fontWeight: FontWeight.bold),
+        return GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return PasswordModalWidget(
+                  groupName: groupsToShow[index].groupName,
+                  id: groupsToShow[index].id,
+                );
+              },
+            );
+          },
+          child: Card(
+            margin: const EdgeInsets.all(8.0),
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(color: Colors.purple.shade300, width: 1),
+              borderRadius: BorderRadius.circular(10),
             ),
-            subtitle: Text(
-              groupsToShow[index].groupDescription, // Qrup təsvirləri
+            child: ListTile(
+              title: Text(
+                groupsToShow[index].groupName, // Qrup adları
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle:
+                  Text(groupsToShow[index].groupDescription), // Qrup təsvirləri
             ),
           ),
         );

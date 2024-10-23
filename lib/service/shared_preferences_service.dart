@@ -28,4 +28,13 @@ class SharedPreferencesService {
       await _prefs!.setString('lastName', lastNameController);
     }
   }
+
+  Future<String> getUserFullName() async {
+    await init();
+    String? firstName = _prefs!.getString('firstName');
+    String? lastName = _prefs!.getString('lastName');
+
+    return '${firstName ?? 'Unknown'} ${lastName ?? ''}'
+        .trim(); // Ad və soyadı birləşdirir
+  }
 }

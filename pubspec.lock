@@ -144,6 +144,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
+  js:
+    dependency: transitive
+    description:
+      name: js
+      sha256: f2c445dce49627136094980615a031419f7f3eb393237e4ecd97ac15dea343f3
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.7"
   leak_tracker:
     dependency: transitive
     description:
@@ -333,6 +349,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sockjs_client_wrapper:
+    dependency: "direct main"
+    description:
+      name: sockjs_client_wrapper
+      sha256: b050d45334a1a22d49276b71f4c73fc6a62a8b9d6025624ccc4c4835fd492937
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.0"
   source_span:
     dependency: transitive
     description:
@@ -349,6 +373,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.1"
+  stomp_dart_client:
+    dependency: "direct main"
+    description:
+      name: stomp_dart_client
+      sha256: "78427459765668129743d9819df716ee3f03789c78d553663bbf7f82d4ffdd3d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   stream_channel:
     dependency: transitive
     description:
@@ -405,6 +437,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "14.2.5"
+  w_common:
+    dependency: transitive
+    description:
+      name: w_common
+      sha256: "4daab34b1c414a2d3e3881ac53c473587b30961e0432acc4474e45dc5f48ea1e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
   web:
     dependency: transitive
     description:
@@ -422,7 +462,7 @@ packages:
     source: hosted
     version: "0.1.6"
   web_socket_channel:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: web_socket_channel
       sha256: "9f187088ed104edd8662ca07af4b124465893caf063ba29758f97af57e61da8f"

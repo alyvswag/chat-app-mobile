@@ -39,6 +39,28 @@ class ApiService {
       return [];
     }
   }
+
+  Future<bool> checkGroupPassword(int id, String password) async {
+    try {
+      // Sorğu göndəririk
+      Response response = await _dio.post(
+        '$_baseUrl/check-group-password?id=$id&password=$password',
+        options: Options(headers: {'Content-Type': 'application/json'}),
+      );
+
+      if (response.statusCode == 200) {
+        // Cavabın bədənindən boolean dəyərini alırıq
+        return response.data as bool;
+      } else {
+        print(
+            'Failed to check group password. Status code: ${response.statusCode}');
+        return false;
+      }
+    } catch (e) {
+      print('Error occurred while checking group password: $e');
+      return false;
+    }
+  }
 }
   // Future<List<CharacterModel>> getMultipleCharacters(List<int> id) async {
   //   try {
